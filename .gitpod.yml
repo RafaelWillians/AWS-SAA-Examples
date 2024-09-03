@@ -2,7 +2,9 @@
 tasks:
   - name: aws-cli
     before: 
+      cd /workspace
       curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2. zip"
       unzip awscliv2.zip
       sudo ./aws/install
+      cd $THEIA_WORKSPACE_ROOT
 # Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
