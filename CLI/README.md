@@ -59,6 +59,11 @@ Upload de arquivo para o bucket
 aws s3 cp test.txt s3://mybucket
 ```
 
+Upload de arquivo para o bucket (via S3 API)
+```
+aws s3api put-object --bucket my-bucket --key test.txt --body test.txt
+```
+
 Criar bucket em outra região
 ```
 aws s3api create-bucket --bucket my-bucket --region us-west-2 --create-bucket-configuration LocationConstraint=us-west-2
