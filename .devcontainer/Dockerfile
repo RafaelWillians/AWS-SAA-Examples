@@ -1,9 +1,20 @@
 # Use the official image as a parent image
-FROM ubuntu:20.04
+FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu
 
-# Install AWS CLI
+# Set working directory
+WORKDIR /workspace
+
+# Install dependencies
 RUN apt-get update && \
-    apt-get install -y awscli
+    apt-get install -y curl unzip sudo
 
-# Install any other dependencies
-RUN apt-get install -y curl
+# Download, unzip, and install AWS CLI
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    sudo ./aws/install
+
+# Set the working directory back
+WORKDIR $THEIA_WORKSPACE_ROOT
+
+# Clean up
+RUN rm -rf /workspace/awscliv2.zip /workspace/aws
