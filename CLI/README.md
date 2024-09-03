@@ -80,3 +80,8 @@ Exemplo de query, para listar somente o bucket que tiver o nome "my-bucket"
 aws s3api list-buckets --query "Buckets[?Name == 'my-bucket'].Name | sort(@) | {NomeBucket: join(', ', @)}"
 ```
 
+Exemplo de query para listar em tabela apenas os nomes dos buckets
+```
+aws s3api list-buckets --query "Buckets[].Name" --output table
+```
+
