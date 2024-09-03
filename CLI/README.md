@@ -37,6 +37,11 @@ Criar bucket
 aws s3api create-bucket --bucket my-bucket
 ```
 
+Upload de arquivo para o bucket
+```
+aws s3 cp test.txt s3://mybucket
+```
+
 Criar bucket em outra região
 ```
 aws s3api create-bucket --bucket my-bucket --region us-west-2 --create-bucket-configuration LocationConstraint=us-west-2
