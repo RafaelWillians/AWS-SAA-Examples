@@ -54,6 +54,11 @@ Criar bucket
 aws s3api create-bucket --bucket my-bucket
 ```
 
+Criar diretório no bucket
+```
+aws s3api put-object --bucket my-bucket --key my-folder/
+```
+
 Upload de arquivo para o bucket
 ```
 aws s3 cp test.txt s3://mybucket
@@ -99,5 +104,6 @@ Download de arquivo
 ```
 aws s3api get-object --bucket my-bucket --key test.txt test.txt
 ```
+
 
 
