@@ -9,7 +9,12 @@ BUCKET_NAME="bucket-test-$RANDOM_STRING"
 # Define a região do bucket.
 AWS_REGION=$(aws ec2 describe-availability-zones --output text --query 'AvailabilityZones[0].[RegionName]')
 
-# Cria o bucket. Região foi configurada no repository secret.
+# Se o AWS_REGION estiver vazio, usa como default a região us-east-1 .
+if [ -z "$AWS_REGION" ]; then
+  AWS_REGION="us-east-1"
+fi
+
+# Cria o bucket.
 aws s3api create-bucket --bucket "$BUCKET-NAME" --region $AWS_REGION --create-bucket-configuration LocationConstraint="$AWS_REGION"
 
 # Exibe o nome do bucket criado.
