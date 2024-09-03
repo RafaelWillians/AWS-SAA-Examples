@@ -7,6 +7,11 @@ Listar as variáveis de ambiente
 env
 ```
 
+Listar as variáveis de ambiente que constem AWS nelas
+```
+env | grep AWS
+```
+
 Criar arquivo de texto localmente
 ```
 touch test.txt
@@ -15,6 +20,16 @@ touch test.txt
 Escrever texto em arquivo local (irá criar o arquivo caso não exista com o nome especificado)
 ```
 echo "Insira seu texto aqui" >> test.txt
+```
+
+Configurar conexão do CLI
+```
+aws configure
+```
+
+Retorna detalhes sobre a credencial do usuário que executar o comando, para checar se o CLI está autenticado com sucesso
+```
+aws sts get-caller-identity
 ```
 
 
