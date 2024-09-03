@@ -7,12 +7,12 @@
 	"customizations": {
 	  "vscode": {
 		"extensions": [
-		  "mhutchie.git-graph",
-		  "phil294.git-log--graph",
-		  "shd101wyy.markdown-preview-enhanced",
-		  "github.vscode-github-actions",
-		  "GitHub.copilot",
-		  "GitHub.copilot-chat"
+			"mhutchie.git-graph",
+			"phil294.git-log--graph",			
+			"github.vscode-github-actions",
+			"GitHub.copilot",
+			"GitHub.copilot-chat",
+			"bierner.github-markdown-preview"
 		]
 	  }
 	},
