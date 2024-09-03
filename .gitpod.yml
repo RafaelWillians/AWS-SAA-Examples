@@ -1,4 +1,3 @@
-# List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
 tasks:
   - name: aws-cli
     env:
@@ -8,5 +7,4 @@ tasks:
       curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" &&
       unzip awscliv2.zip &&
       sudo ./aws/install &&
-      cd $THEIA_WORKSPACE_ROOT      
-# Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
+      cd $THEIA_WORKSPACE_ROOT
