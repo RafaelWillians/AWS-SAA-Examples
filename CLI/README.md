@@ -61,7 +61,7 @@ aws s3 cp test.txt s3://mybucket
 
 Upload de arquivo para o bucket (via S3 API)
 ```
-aws s3api put-object --bucket my-bucket --key test.txt --body test.txt
+aws s3api put-object --bucket my-bucket --key test.txt --content-type plain/txt --body test.txt
 ```
 
 Criar bucket em outra região
@@ -99,3 +99,5 @@ Download de arquivo
 ```
 aws s3api get-object --bucket my-bucket --key test.txt test.txt
 ```
+
+
