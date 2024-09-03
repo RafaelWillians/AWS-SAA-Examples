@@ -3,4 +3,4 @@ Codebase criado para testes da certificação AWS SAA
 
 ## Conteúdos
 
-[Comandos CLI](./CLI)
+[Comandos CLI](./cli)
