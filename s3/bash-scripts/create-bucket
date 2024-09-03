@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 
+
+
+
 # This script creates an S3 bucket
-aws s3api create-bucket --bucket your-bucket-name --region your-region
+aws s3api create-bucket --bucket your-bucket-name --region $AWS_DEFAULT_REGION
