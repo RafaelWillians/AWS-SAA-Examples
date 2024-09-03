@@ -1,7 +1,16 @@
 #!/usr/bin/env bash
 
+# Gera uma string aleatória de 10 caracteres.
+RANDOM_STRING=$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 10 | head -n 1)
 
+# Cria uma máscara para o nome do bucket.
+BUCKET_NAME="bucket-test-$RANDOM_STRING"
 
+# Define a região do bucket.
+AWS_REGION=$(aws ec2 describe-availability-zones --output text --query 'AvailabilityZones[0].[RegionName]')
 
-# This script creates an S3 bucket
-aws s3api create-bucket --bucket your-bucket-name --region $AWS_DEFAULT_REGION
+# Cria o bucket. Região foi configurada no repository secret.
+aws s3api create-bucket --bucket "$BUCKET-NAME" --region $AWS_REGION --create-bucket-configuration LocationConstraint="$AWS_REGION"
+
+# Exibe o nome do bucket criado.
+echo "Bucket created: $BUCKET_NAME in region $AWS_REGION"
