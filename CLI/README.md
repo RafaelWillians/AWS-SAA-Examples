@@ -1,4 +1,6 @@
-# AWS CLI - Comandos para S3
+# AWS CLI - Comandos
+
+## Gerais (com ou sem AWS CLI)
 
 Listar as variáveis de ambiente
 ```
