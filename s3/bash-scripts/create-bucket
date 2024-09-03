@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Gera uma string aleatória de 10 caracteres.
-RANDOM_STRING=$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 10 | head -n 1)
+RANDOM_STRING=$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 20 | head -n 1)
 
 # Cria uma máscara para o nome do bucket.
 BUCKET_NAME="bucket-test-$RANDOM_STRING"
