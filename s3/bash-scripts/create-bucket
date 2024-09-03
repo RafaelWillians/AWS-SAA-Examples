@@ -9,6 +9,11 @@ BUCKET_NAME="bucket-test-$RANDOM_STRING"
 # Define a região do bucket.
 AWS_REGION=$(aws ec2 describe-availability-zones --output text --query 'AvailabilityZones[0].[RegionName]')
 
+# Verifica se a região definida no CLI é diferente da região definida no script acima.
+if [ "$AWS_REGION" != "$(aws configure get region)" ] && [ -n "$(aws configure get region)" ]; then
+    AWS_REGION="$(aws configure get region)"
+fi
+
 # Se o AWS_REGION estiver vazio, usa como default a região us-east-1 .
 if [ -z "$AWS_REGION" ]; then
   AWS_REGION="us-east-1"
