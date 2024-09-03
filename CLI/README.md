@@ -90,3 +90,8 @@ Exemplo de query para listar em tabela apenas os nomes dos buckets
 aws s3api list-buckets --query "Buckets[].Name" --output table
 ```
 
+Sincroniza arquivos entre diretório local e bucket
+```
+aws s3 sync . s3://my-bucket
+```
+
