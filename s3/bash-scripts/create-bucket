@@ -27,4 +27,4 @@ else
 fi
 
 # Exibe o nome do bucket criado.
-echo "Bucket created: $BUCKET_NAME in region $AWS_REGION"
+# echo "Bucket created: $BUCKET_NAME in region $AWS_REGION"
