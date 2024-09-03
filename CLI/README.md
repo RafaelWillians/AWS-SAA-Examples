@@ -95,3 +95,7 @@ Sincroniza arquivos entre diretório local e bucket
 aws s3 sync . s3://my-bucket
 ```
 
+Download de arquivo
+```
+aws s3api get-object --bucket my-bucket --key test.txt test.txt
+```
