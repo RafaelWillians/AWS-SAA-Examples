@@ -1,1 +1,28 @@
 #!/usr/bin/env bash
+
+# Script para enviar um objeto para um bucket no S3.
+
+# Verifica se o nome do bucket e o caminho do objeto foram passados como argumentos.
+if [ -z "$1" ] || [ -z "$2" ]; then
+  echo "Bucket name or object path not provided."
+  exit 1
+fi
+
+# Atribui o nome do bucket e o caminho do objeto passados como argumentos às variáveis BUCKET_NAME e OBJECT_PATH.
+BUCKET_NAME="$1"
+OBJECT_PATH="$2"
+
+# Verifica se o objeto existe no caminho especificado.
+if [ ! -f "$OBJECT_PATH" ]; then
+  echo "Object not found at path: $OBJECT_PATH"
+  exit 1
+fi
+
+# Envia o objeto para o bucket especificado.
+aws s3 cp "$OBJECT_PATH" "s3://$BUCKET_NAME/"
+
+# Se o objeto foi enviado com sucesso, exibe uma mensagem informando o nome do objeto e o nome do bucket.
+if [ $? -eq 0 ]; then
+  OBJECT_NAME=$(basename "$OBJECT_PATH")
+  echo "Object $OBJECT_NAME uploaded to bucket $BUCKET_NAME"
+fi

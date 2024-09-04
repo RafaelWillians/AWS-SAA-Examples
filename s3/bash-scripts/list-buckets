@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Script para listar os buckets no S3.
+
+# Lista todos os buckets.
+aws s3api list-buckets \
+  --query 'Buckets[].Name' \
+  --output text
