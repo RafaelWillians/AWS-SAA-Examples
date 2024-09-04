@@ -30,3 +30,8 @@ if [ "$AWS_REGION" = "us-east-1" ]; then
 else
   aws s3api delete-bucket --bucket "$BUCKET_NAME" --region "$AWS_REGION"
 fi
+
+# Se o bucket foi excluído com sucesso, exibe o nome do bucket excluído.
+if [ $? -eq 0 ]; then
+  echo "Bucket deleted: $BUCKET_NAME in region $AWS_REGION"
+fi
