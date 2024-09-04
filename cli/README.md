@@ -32,6 +32,11 @@ Retorna detalhes sobre a credencial do usuário que executar o comando, para ch
 aws sts get-caller-identity
 ```
 
+Lista detalhadamente o conteúdo do diretório, incluindo arquivos/subpastas ocultos
+```
+ls -la
+```
+
 
 ## S3
 Listar buckets
