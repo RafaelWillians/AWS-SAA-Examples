@@ -37,6 +37,11 @@ Lista detalhadamente o conteúdo do diretório, incluindo arquivos/subpastas o
 ls -la
 ```
 
+Alterar permissão de todos os arquivos de uma subpasta, para permitir que o proprietário execute-os
+```
+chmod u+x s3/bash-scripts/*
+```
+
 
 ## S3
 Listar buckets
