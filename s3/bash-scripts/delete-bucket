@@ -1,1 +1,32 @@
 #!/usr/bin/env bash
+
+# Script para criar bucket no S3, com um nome personalizado.
+
+# Verifica se o nome do bucket foi passado como argumento.
+if [ -z "$1" ]; then
+  echo "Bucket name not provided."
+  exit 1
+fi
+
+# Atribui o nome do bucket passado como argumento à variável BUCKET_NAME.
+BUCKET_NAME="$1"
+
+# Define a região do bucket.
+AWS_REGION=$(aws ec2 describe-availability-zones --output text --query 'AvailabilityZones[0].[RegionName]')
+
+# Verifica se a região definida no CLI é diferente da região definida no script acima.
+if [ "$AWS_REGION" != "$(aws configure get region)" ] && [ -n "$(aws configure get region)" ]; then
+    AWS_REGION="$(aws configure get region)"
+fi
+
+# Se o AWS_REGION estiver vazio, usa como default a região us-east-1 .
+if [ -z "$AWS_REGION" ]; then
+  AWS_REGION="us-east-1"
+fi
+
+# Exclui o bucket.
+if [ "$AWS_REGION" = "us-east-1" ]; then
+  aws s3api delete-bucket --bucket "$BUCKET_NAME"
+else
+  aws s3api delete-bucket --bucket "$BUCKET_NAME" --region "$AWS_REGION"
+fi

@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# Script para criar bucket no S3, com um nome personalizado.
+
+# Verifica se o nome do bucket foi passado como argumento.
+if [ -z "$1" ]; then
+  echo "Bucket name not provided."
+  exit 1
+fi
+
+# Verifica se a região foi passada como argumento.
+if [ -z "$2" ]; then
+  echo "Region not provided."
+  exit 1
+fi
+
+# Atribui o nome do bucket passado como argumento à variável BUCKET_NAME.
+BUCKET_NAME="$1"
+
+# Atribui a região passada como argumento à variável AWS_REGION.
+AWS_REGION="$2"
+
+# Cria o bucket.
+if [ "$AWS_REGION" = "us-east-1" ]; then
+  aws s3api create-bucket --bucket "$BUCKET_NAME"
+else
+  aws s3api create-bucket --bucket "$BUCKET_NAME" --region "$AWS_REGION" --create-bucket-configuration LocationConstraint="$AWS_REGION"
+fi
+
+# Se o bucket foi criado com sucesso, exibe o nome do bucket criado.
+if [ $? -eq 0 ]; then
+  echo "Bucket created: $BUCKET_NAME in region $AWS_REGION"
+fi
