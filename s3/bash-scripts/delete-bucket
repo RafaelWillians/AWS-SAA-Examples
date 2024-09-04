@@ -11,6 +11,11 @@ fi
 # Atribui o nome do bucket passado como argumento à variável BUCKET_NAME.
 BUCKET_NAME="$1"
 
+# Verifica se foi passado um segundo argumento, que é um argumento adicional ao comando delete-bucket.
+if [ -n "$2" ]; then
+  ADDITIONAL_ARGUMENT="$2"
+fi
+
 # Define a região do bucket.
 AWS_REGION=$(aws ec2 describe-availability-zones \
   --output text \
@@ -29,12 +34,14 @@ fi
 
 # Exclui o bucket.
 if [ "$AWS_REGION" = "us-east-1" ]; then
-  aws s3api delete-bucket \
-    --bucket "$BUCKET_NAME"
+  aws s3 rb \
+    s3://"$BUCKET_NAME" \
+    "$ADDITIONAL_ARGUMENT"
 else
-  aws s3api delete-bucket \
-    --bucket "$BUCKET_NAME" \
-    --region "$AWS_REGION"
+  aws s3 rb \
+    s3://"$BUCKET_NAME" \
+    --region "$AWS_REGION" \
+    "$ADDITIONAL_ARGUMENT"
 fi
 
 # Se o bucket foi excluído com sucesso, exibe o nome do bucket excluído.
