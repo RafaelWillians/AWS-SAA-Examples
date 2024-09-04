@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Script para criar um bucket no S3, com um nome aleatório.
+
 # Gera uma string aleatória de 10 caracteres.
 RANDOM_STRING=$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 20 | head -n 1)
 
