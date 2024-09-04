@@ -26,5 +26,7 @@ else
   aws s3api create-bucket --bucket "$BUCKET_NAME" --region "$AWS_REGION" --create-bucket-configuration LocationConstraint="$AWS_REGION"
 fi
 
-# Exibe o nome do bucket criado.
-# echo "Bucket created: $BUCKET_NAME in region $AWS_REGION"
+# Se o bucket foi criado com sucesso, exibe o nome do bucket criado.
+if [ $? -eq 0 ]; then
+  echo "Bucket created: $BUCKET_NAME in region $AWS_REGION"
+fi
