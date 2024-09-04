@@ -22,9 +22,14 @@ AWS_REGION="$2"
 
 # Cria o bucket.
 if [ "$AWS_REGION" = "us-east-1" ]; then
-  aws s3api create-bucket --bucket "$BUCKET_NAME"
+  aws s3api create-bucket \
+    --bucket "$BUCKET_NAME"
 else
-  aws s3api create-bucket --bucket "$BUCKET_NAME" --region "$AWS_REGION" --create-bucket-configuration LocationConstraint="$AWS_REGION"
+  aws s3api create-bucket \
+    --bucket "$BUCKET_NAME" \
+    --region "$AWS_REGION" \
+    --create-bucket-configuration \
+      LocationConstraint="$AWS_REGION"
 fi
 
 # Se o bucket foi criado com sucesso, exibe o nome do bucket criado.

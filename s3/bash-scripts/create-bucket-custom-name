@@ -13,8 +13,8 @@ BUCKET_NAME="$1"
 
 # Define a região do bucket.
 AWS_REGION=$(aws ec2 describe-availability-zones \
---output text \
---query 'AvailabilityZones[0].[RegionName]')
+  --output text \
+  --query 'AvailabilityZones[0].[RegionName]')
 
 # Verifica se a região definida no CLI é diferente da região definida no script acima.
 if [ "$AWS_REGION" != "$(aws configure get region)" ] \
@@ -30,12 +30,13 @@ fi
 # Cria o bucket.
 if [ "$AWS_REGION" = "us-east-1" ]; then
   aws s3api create-bucket \
-  --bucket "$BUCKET_NAME"
+    --bucket "$BUCKET_NAME"
 else
   aws s3api create-bucket \
-  --bucket "$BUCKET_NAME" \
-  --region "$AWS_REGION" \
-  --create-bucket-configuration LocationConstraint="$AWS_REGION"
+    --bucket "$BUCKET_NAME" \
+    --region "$AWS_REGION" \
+    --create-bucket-configuration \
+      LocationConstraint="$AWS_REGION"
 fi
 
 # Se o bucket foi criado com sucesso, exibe o nome do bucket criado.
