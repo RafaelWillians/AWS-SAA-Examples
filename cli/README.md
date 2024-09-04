@@ -42,6 +42,11 @@ Alterar permissão de todos os arquivos de uma subpasta, para permitir que o pr
 chmod u+x s3/bash-scripts/*
 ```
 
+Retirar permissão de execução do proprietário, em todos os arquivos de uma subpasta
+```
+chmod u-x s3/bash-scripts/*
+```
+
 
 ## S3
 Listar buckets
