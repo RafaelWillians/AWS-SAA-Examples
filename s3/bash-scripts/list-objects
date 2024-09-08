@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Script para listar os objetos em um bucket no S3.
+
+# Verifica se o nome do bucket foi passado como argumento.
+if [ -z "$1" ]; then
+  echo "Bucket name not provided."
+  exit 1
+fi
+
+# Atribui o nome do bucket passado como argumento à variável BUCKET_NAME.
+BUCKET_NAME="$1"
+
+# Lista os objetos no bucket.
+aws s3api list-objects-v2 \
+  --bucket "$BUCKET_NAME" \
+  --query 'Contents[].Key' \
+  --output text
+  
