@@ -1,1 +1,21 @@
 #!/usr/bin/env bash
+
+# Script para sincronizar objetos entre buckets no S3.
+
+# Verifica se o nome dos buckets foi passado como argumento.
+if [ -z "$1" ] || [ -z "$2" ]; then
+  echo "Bucket names not provided."
+  exit 1
+fi
+
+# Atribui os nomes dos buckets passados como argumentos às variáveis SOURCE_BUCKET e DESTINATION_BUCKET.
+SOURCE_BUCKET="$1"
+DESTINATION_BUCKET="$2"
+
+# Sincroniza os objetos do bucket de origem com o bucket de destino.
+aws s3 sync "s3://$SOURCE_BUCKET" "s3://$DESTINATION_BUCKET/"
+
+# Se a sincronização foi realizada com sucesso, exibe uma mensagem informando os nomes dos buckets.
+if [ $? -eq 0 ]; then
+  echo "Objects synchronized from $SOURCE_BUCKET to $DESTINATION_BUCKET"
+fi

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Script para excluir um objeto de um bucket no S3.
+
+# Verifica se o nome do bucket e o caminho do objeto foram passados como argumentos.
+if [ -z "$1" ] || [ -z "$2" ]; then
+  echo "Bucket name or object path not provided."
+  exit 1
+fi
+
+# Atribui o nome do bucket e o caminho do objeto passados como argumentos às variáveis BUCKET_NAME e OBJECT_PATH.
+BUCKET_NAME="$1"
+OBJECT_PATH="$2"
+
+# Exclui o objeto do bucket especificado.
+aws s3api delete-object \
+  --bucket "$BUCKET_NAME" \
+  --key "$OBJECT_PATH"
+
+# Se o objeto foi excluído com sucesso, exibe uma mensagem informando o nome do objeto e o nome do bucket.
+if [ $? -eq 0 ]; then
+  echo "Object $OBJECT_PATH deleted from bucket $BUCKET_NAME"
+fi
