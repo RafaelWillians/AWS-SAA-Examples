@@ -19,7 +19,11 @@ if [ ! -f "$OBJECT_PATH" ]; then
 fi
 
 # Envia o objeto para o bucket especificado.
-aws s3 cp "$OBJECT_PATH" "s3://$BUCKET_NAME/"
+aws s3api put-object \
+  --bucket "$BUCKET_NAME" \
+  --key "$(basename "$OBJECT_PATH")" \
+  --body "$OBJECT_PATH"
+
 
 # Se o objeto foi enviado com sucesso, exibe uma mensagem informando o nome do objeto e o nome do bucket.
 if [ $? -eq 0 ]; then
