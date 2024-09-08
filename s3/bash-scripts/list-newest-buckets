@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Script para listar os buckets no S3 mais recentemente criados.
+
+# Lista os buckets no S3 mais recentes e as datas de criação.
+
+echo "Newest S3 buckets:"
+
+aws s3api list-buckets \
+    --query "Buckets[*].[Name,CreationDate]" \
+    --output table | sort -k 2 -r
