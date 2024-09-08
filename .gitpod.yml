@@ -7,5 +7,13 @@ tasks:
       curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
       unzip -o awscliv2.zip && \
       sudo ./aws/install && \
-      cd $THEIA_WORKSPACE_ROOT
+      curl "https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb" -o "packages-microsoft-prod.deb" && \
+      sudo dpkg -i packages-microsoft-prod.deb && \
+      sudo apt-get update && \
+      sudo apt-get install -y powershell && \
+      cd $THEIA_WORKSPACE_ROOT && \
+      rm -rf /workspace/awscliv2.zip /workspace/aws && \
+      rm -rf /workspace/packages-microsoft-prod.deb
+
+      
       
