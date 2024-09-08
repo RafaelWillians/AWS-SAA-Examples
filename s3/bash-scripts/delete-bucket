@@ -32,7 +32,7 @@ if [ -z "$AWS_REGION" ]; then
   AWS_REGION="us-east-1"
 fi
 
-# Exclui o bucket.
+# Exclui o bucket. Se a região for us-east-1, não é necessário passar o parâmetro --region.
 if [ "$AWS_REGION" = "us-east-1" ]; then
   aws s3 rb \
     s3://"$BUCKET_NAME" \
