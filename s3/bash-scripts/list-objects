@@ -4,7 +4,7 @@
 
 # Verifica se o nome do bucket foi passado como argumento.
 if [ -z "$1" ]; then
-  echo "Bucket name not provided."
+  echo "Bucket name not provided. Example: ./list-objects my_bucket_name"
   exit 1
 fi
 
