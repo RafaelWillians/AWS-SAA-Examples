@@ -34,4 +34,11 @@ O ElastiCache for Memcached terá em cache os dados mais acessados do banco RDS,
 
 13. Para operações de gravação no catálogo de produtos, o Backend processa e armazena os dados no DynamoDB e no ElastiCache for Redis, para disponibilizar em cache o conteúdo recém gravado no banco.
 
+## Pontos de atenção
 
+1. Foi considerado o uso de 3 ou mais Zonas de Disponibilidade e Multi-Cloud. Porém como o foco também é no custo, foi decidido não utilizar tais recursos.
+
+2. Os serviços AWS Shield Advanced e GuardDuty foram descartados devido ao custo (US$ 6000 ou mais/mês), porém podem ser re-considerados em cenários de maior faturamento do e-commerce.
+
+3. Uso do DynamoDB será limitado nesse cenário devido ao custo.
+Quantidade de gravações sob demanda por mês sobe US$75 para cada milhão de gravações sob demanda, com um custo inicial já em torno de US$ 600.
