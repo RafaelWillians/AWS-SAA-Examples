@@ -12,6 +12,7 @@ Diagrama para E-Commerce altamente disponível, escalável, segura e com custo o
 Caso ocorra indisponibilidade, direciona o tráfego para o site estático no S3 conforme configurado como failover secundário no Route 53.
 
 4. Para conteúdo dinâmico, como páginas de produtos ou carrinhos de compras, o usuário é direcionado pelo Application Load Balancer para as instâncias EC2 de frontend em grupos de Auto Scaling, que farão o processamento das requisições do usuário e da renderização do site. Conforme a demanda aumenta, o usuário pode ser direcionado para qualquer uma das duas zonas de disponibilidade, para maior disponibilidade do site.
+Aplicamos o AWS WAF no ALB para protegermos contra ataques OWASP Top 10, mitigação de bots e crawlers e outros tipos.
 
 5. De forma automatizada, o Application Load Balancer checa a integridade das instâncias e aciona o Auto Scaling para aumentar ou diminuir o número de instâncias EC2, tornando a aplicação elástica à demanda.
 
@@ -27,7 +28,7 @@ O ElastiCache for Memcached terá em cache os dados mais acessados do banco RDS,
 
 10. Para solicitações de escrita dos pedidos de compra e outras solicitações para o banco SQL, o Backend grava as informações no RDS e alimenta o cache do ElastiCache for Memcached.
 
-11. Para as outras transações, como cadastros de usuários e cadastros no catálogo de produtos, utilizamos o Application Load Balancing em vez do SQS, para o Frontend enviar tais requisições ao Backend e depois armazenar nos bancos de dados.
+11. Para as outras transações, como cadastros de usuários e cadastros no catálogo de produtos, utilizamos o Application Load Balancing com AWS WAF em vez do SQS, para o Frontend enviar tais requisições ao Backend e depois armazenar nos bancos de dados.
 
 12. Para operações de leitura no catálogo de produtos, usamos o ElastiCache for Redis para maior performance e menor sobrecarga de acesso no DynamoDB.
 
