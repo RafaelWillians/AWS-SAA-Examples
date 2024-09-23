@@ -18,16 +18,16 @@
 	},
 	"secrets": {
 		"AWS_ACCESS_KEY_ID": {
-			"description": "AWS Access Key ID",
+			"description": "AWS Access Key ID"
 		},
 		"AWS_SECRET_ACCESS_KEY": {
-			"description": "AWS Secret Access",
+			"description": "AWS Secret Access"
 		},
 		"AWS_DEFAULT_REGION": {
-			"description": "AWS Default Region",
+			"description": "AWS Default Region"
 		},
 		"AWS_SESSION_TOKEN": {
-			"description": "AWS Session Token (optional)",
+			"description": "AWS Session Token (optional)"
 		}
 	}	
   }
