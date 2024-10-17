@@ -1,7 +1,7 @@
 # AWS-SAA-Examples
 Codebase criado para testes da certificação AWS SAA.
 
-Para logar no AWS CLI, execute o script ./aws-cli-login.sh ou o comando abaixo:
+Para logar no AWS CLI, execute no terminal o script ./aws-cli-login.sh ou o comando abaixo:
 
 ```
 aws configure
