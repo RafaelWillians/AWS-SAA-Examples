@@ -29,5 +29,6 @@
 		"AWS_SESSION_TOKEN": {
 			"description": "AWS Session Token (optional)"
 		}
-	}	
+	},
+	"postStartCommand": "pwsh -Command \"Install-Module -Name AWS.Tools.Installer -Force\""	
   }
