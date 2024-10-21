@@ -17,10 +17,7 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
 RUN curl "https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb" -o "packages-microsoft-prod.deb" && \
     sudo dpkg -i packages-microsoft-prod.deb && \
     sudo apt-get update && \
-    sudo apt-get install -y powershell
-
-# Install AWS Toolls for PowerShell
-RUN pwsh -Command "Install-Module -Name AWS.Tools.Installer -Force"
+    sudo apt-get install -y powershell    
 
 # Set the working directory back
 WORKDIR $THEIA_WORKSPACE_ROOT
@@ -29,3 +26,6 @@ WORKDIR $THEIA_WORKSPACE_ROOT
 RUN rm -rf /workspace/awscliv2.zip /workspace/aws
 RUN rm -rf /workspace/packages-microsoft-prod.deb
 
+# Install AWS Tools for PowerShell
+RUN pwsh -Command "Install-Module -Name AWS.Tools.Installer -Force"
+RUN pwsh -Command exit
