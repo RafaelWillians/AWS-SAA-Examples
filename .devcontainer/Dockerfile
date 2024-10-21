@@ -27,4 +27,4 @@ RUN rm -rf /workspace/awscliv2.zip /workspace/aws
 RUN rm -rf /workspace/packages-microsoft-prod.deb
 
 # Install AWS Tools for PowerShell
-RUN pwsh -Command "Install-Module -Name AWS.Tools.Installer -Force -Scope CurrentUser"
+RUN pwsh -Command "Install-Module -Name AWS.Tools.Installer -Force -AllowClobber"
