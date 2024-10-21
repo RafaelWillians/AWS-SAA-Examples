@@ -19,6 +19,9 @@ RUN curl "https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-
     sudo apt-get update && \
     sudo apt-get install -y powershell
 
+# Install AWS Toolls for PowerShell
+RUN pwsh -Command "Install-Module -Name AWS.Tools.Installer -Force"
+
 # Set the working directory back
 WORKDIR $THEIA_WORKSPACE_ROOT
 
