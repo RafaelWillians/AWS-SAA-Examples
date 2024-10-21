@@ -11,9 +11,9 @@ tasks:
       sudo dpkg -i packages-microsoft-prod.deb && \
       sudo apt-get update && \
       sudo apt-get install -y powershell && \
+      pwsh -Command "Install-Module -Name AWS.Tools.Installer -Force" && \
       cd $THEIA_WORKSPACE_ROOT && \
       rm -rf /workspace/awscliv2.zip /workspace/aws && \
       rm -rf /workspace/packages-microsoft-prod.deb
-
       
       
