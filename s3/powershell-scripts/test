@@ -1,0 +1,1 @@
+Install-Module -Name AWS.Tools.Installer -Force
