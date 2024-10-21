@@ -14,7 +14,7 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
     sudo ./aws/install
 
 # Download and install Microsoft Powershell
-RUN curl "https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb" -o "packages-microsoft-prod.deb" && \
+RUN curl "https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb" -o "packages-microsoft-prod.deb" && \
     sudo dpkg -i packages-microsoft-prod.deb && \
     sudo apt-get update && \
     sudo apt-get install -y powershell    
