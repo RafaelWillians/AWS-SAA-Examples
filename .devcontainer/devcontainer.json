@@ -9,9 +9,7 @@
 		"extensions": [
 			"mhutchie.git-graph",
 			"phil294.git-log--graph",			
-			"github.vscode-github-actions",
-			"GitHub.copilot",
-			"GitHub.copilot-chat",
+			"github.vscode-github-actions",			
 			"bierner.github-markdown-preview"
 		]
 	  }
