@@ -1,13 +1,17 @@
 # AWS-SAA-Examples
 Codebase criado para testes da certificação AWS SAA.
 
-Para logar no AWS CLI, execute no terminal o script ./aws-cli-login.sh ou o comando abaixo:
+Para logar no AWS CLI, execute no terminal o comando abaixo:
 
 ```
 aws configure
 ```
 
-Obs.: recomendo usar o script caso tiver session_token na credencial que utilizar. 
+O AWS CLI requer o arquivo ~/.aws/credentials criado para autenticar com a AWS. Com o comando acima, esse arquivo é criado.
+Como alternativa, vocês podem executar os scripts ./aws-cli-login.sh para colar as credenciais.
+Ou o ./aws-cli-login-paste-credentials.sh caso desejarem colar e usar o arquivo credentials já pronto.
+
+Obs.: recomendo usar um dos scripts caso tiver session_token na credencial que utilizar.
 
 ## Conteúdos
 
