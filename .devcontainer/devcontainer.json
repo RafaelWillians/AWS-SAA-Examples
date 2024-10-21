@@ -9,9 +9,7 @@
 		"extensions": [
 			"mhutchie.git-graph",
 			"phil294.git-log--graph",			
-			"github.vscode-github-actions",
-			"GitHub.copilot",
-			"GitHub.copilot-chat",
+			"github.vscode-github-actions",			
 			"bierner.github-markdown-preview"
 		]
 	  }
@@ -29,5 +27,6 @@
 		"AWS_SESSION_TOKEN": {
 			"description": "AWS Session Token (optional)"
 		}
-	}	
+	},
+	"postStartCommand": "pwsh -Command \"Install-Module -Name AWS.Tools.Installer -Force\""	
   }

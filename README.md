@@ -21,6 +21,11 @@ Obs.: recomendo usar o script caso tiver session_token na credencial que utiliza
 * Git Graph
 * GitLG
 * GitHub Actions
-* GitHub Copilot
-* GitHub Copilot Chat
 * GitHub Markdown Preview
+* ~~GitHub Copilot~~ retirado para melhor portabilidade do repo
+* ~~GitHub Copilot Chat~~ retirado para melhor portabilidade do repo
+
+### Recursos adicionais no Devcontainer/Dockerfile
+* AWS CLI
+* PowerShell
+* AWS Tools for PowerShell
