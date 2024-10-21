@@ -28,6 +28,6 @@ RUN rm -rf /workspace/packages-microsoft-prod.deb
 
 # Install AWS Tools for PowerShell
 CMD ["pwsh"]
-RUN Install-Module -Name AWS.Tools.Installer -Force -AllowClobber
+RUN pwsh -Command "Install-Module -Name AWS.Tools.Installer -Force -AllowClobber"
 
 CMD ["/bin/bash"]
