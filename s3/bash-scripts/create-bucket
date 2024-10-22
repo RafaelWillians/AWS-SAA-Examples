@@ -6,7 +6,7 @@
 RANDOM_STRING=$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 20 | head -n 1)
 
 # Cria uma máscara para o nome do bucket.
-BUCKET_NAME="bucket-test-$RANDOM_STRING"
+BUCKET_NAME="bucket-$RANDOM_STRING"
 
 # Define a região do bucket.
 AWS_REGION=$(aws ec2 describe-availability-zones \
