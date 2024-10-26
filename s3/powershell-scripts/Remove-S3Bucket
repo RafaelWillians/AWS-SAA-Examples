@@ -12,25 +12,33 @@ if (-not (Get-Module -Name AWS.Tools.S3)) {
     Write-Host "Módulo AWS.Tools.S3 carregado com sucesso!"
 }
 
-# Gera uma string aleatória até 20 dígitos
-function Generate-RandomName {
-    param(
-        [int]$length = 20
-    )
-    $chars = 'abcdefghijklmnopqrstuvwxyz0123456789'
-    $name = -join ((1..$length) | ForEach-Object { $chars[(Get-Random -Maximum $chars.Length)] })
-    return $name
+# Definindo nome do bucket para receber como parametro
+param(
+    [Parameter(Mandatory = $true)]
+    [string]$BucketName
+)
+
+# Checar se o bucket existe
+$bucket = Get-S3Bucket | Where-Object { $_.BucketName -eq $BucketName}
+
+# Solicita confirmacao ao usuario e entao exclui
+if ($bucket) {
+    $confirmation = Read-Host "Tem certeza que deseja remover o bucket '$BucketName'?`nDigite 'sim' para confirmar: "
+
+    # Remove o bucket
+    if ($confirmation -eq 'sim') {
+        try {
+            Remove-S3Bucket -BucketName $BucketName
+            Write-Output "Bucket '$BucketName' removido com sucesso."            
+        }
+        catch {
+            Write-Output "Erro ao remover o bucket: $_"
+        }
+    }
+    else {
+        Write-Output "Operacao cancelada."
+    }
 }
-
-$bucketName = "bucket-$randomName"
-
-# Criar o bucket S3
-Write-Host "Excluindo bucket S3: $bucketName"
-Remove-S3Bucket -BucketName $bucketName
-
-# Checa se criou com sucesso
-if ($?) {
-    Write-Host "Bucket '$bucketName' removido com sucesso!"
-} else {
-    Write-Host "Falha ao excluir o bucket '$bucketName'."
+else {
+    Write-Output "Bucket '$BucketName' nao encontrado."
 }
