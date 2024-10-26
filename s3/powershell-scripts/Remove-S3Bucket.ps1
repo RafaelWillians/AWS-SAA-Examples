@@ -28,7 +28,8 @@ if ($bucket) {
     # Remove o bucket
     if ($confirmation -eq 'sim') {
         try {
-            # -Force serve para prosseguir sem pedir mais nenhuma confirmacao. Porem nao ira excluir bucket se nao estiver vazio.
+            # -Force serve para prosseguir sem pedir mais nenhuma confirmacao.
+            # Porem nao ira excluir bucket se nao estiver vazio.
             Remove-S3Bucket -BucketName $BucketName -Force
             Write-Output "Bucket '$BucketName' removido com sucesso."            
         }
