@@ -1,0 +1,36 @@
+# Verificar se o módulo AWS.Tools.S3 está instalado e, caso contrário, instala-o
+if (-not (Get-Module -ListAvailable -Name AWS.Tools.S3)) {
+    Write-Host "O módulo AWS.Tools.S3 não está instalado. Instalando..."
+    Install-Module -Name AWS.Tools.S3 -Force -Scope CurrentUser
+    Write-Host "Módulo AWS.Tools.S3 instalado com sucesso!"
+}
+
+# Certificar-se de que o módulo está carregado após a instalação ou se já estava instalado
+if (-not (Get-Module -Name AWS.Tools.S3)) {
+    Write-Host "Carregando o módulo AWS.Tools.S3..."
+    Import-Module -Name AWS.Tools.S3
+    Write-Host "Módulo AWS.Tools.S3 carregado com sucesso!"
+}
+
+# Gera uma string aleatória até 20 dígitos
+function Generate-RandomName {
+    param(
+        [int]$length = 20
+    )
+    $chars = 'abcdefghijklmnopqrstuvwxyz0123456789'
+    $name = -join ((1..$length) | ForEach-Object { $chars[(Get-Random -Maximum $chars.Length)] })
+    return $name
+}
+
+$bucketName = "bucket-$randomName"
+
+# Criar o bucket S3
+Write-Host "Excluindo bucket S3: $bucketName"
+Remove-S3Bucket -BucketName $bucketName
+
+# Checa se criou com sucesso
+if ($?) {
+    Write-Host "Bucket '$bucketName' removido com sucesso!"
+} else {
+    Write-Host "Falha ao excluir o bucket '$bucketName'."
+}
