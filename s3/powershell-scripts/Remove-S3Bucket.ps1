@@ -1,3 +1,9 @@
+# Definindo nome do bucket para receber como parametro
+param(
+    [Parameter(Mandatory)]    
+    [string]$BucketName
+)
+
 # Verificar se o módulo AWS.Tools.S3 está instalado e, caso contrário, instala-o
 if (-not (Get-Module -ListAvailable -Name AWS.Tools.S3)) {
     Write-Host "O módulo AWS.Tools.S3 não está instalado. Instalando..."
@@ -11,12 +17,6 @@ if (-not (Get-Module -Name AWS.Tools.S3)) {
     Import-Module -Name AWS.Tools.S3
     Write-Host "Módulo AWS.Tools.S3 carregado com sucesso!"
 }
-
-# Definindo nome do bucket para receber como parametro
-param(
-    [Parameter(Mandatory = $true)]
-    [string]$BucketName
-)
 
 # Checar se o bucket existe
 $bucket = Get-S3Bucket | Where-Object { $_.BucketName -eq $BucketName}
