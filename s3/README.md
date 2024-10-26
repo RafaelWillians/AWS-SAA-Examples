@@ -2,7 +2,9 @@
 
 ## Scripts
 
-[bash-scripts](./bash-scripts/)
+[Bash](./bash-scripts/)
+
+[PowerShell](./powershell-scripts/)
 
 ## Utilitários
 
