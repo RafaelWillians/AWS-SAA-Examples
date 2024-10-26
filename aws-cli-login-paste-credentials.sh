@@ -20,4 +20,4 @@ cat <<EOL > ~/.aws/config
 region = $AWS_DEFAULT_REGION
 EOL
 
-echo "As credenciais foram salvas."
+echo -e "\n\nAs credenciais foram salvas."
