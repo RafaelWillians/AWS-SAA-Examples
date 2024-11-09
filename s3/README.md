@@ -1,5 +1,9 @@
 # S3
 
+## Exemplos em código
+
+[Ruby](./ruby/)
+
 ## Scripts
 
 [Bash](./bash-scripts/)
