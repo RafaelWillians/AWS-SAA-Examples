@@ -17,6 +17,10 @@ Executar o arquivo ruby (neste exemplo abaixo, não irá passar nenhum parâmetr
 bundle exec ruby s3.rb
 ```
 
+Executar o arquivo ruby, passando o nome do bucket como parâmetro.
+```
+BUCKET_NAME='exemplo-nome-bucket' bundle exec ruby s3.rb
+```
 
 
 
