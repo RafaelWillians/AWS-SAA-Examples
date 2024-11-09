@@ -12,5 +12,16 @@ Instalar as dependências.
 bundle install
 ```
 
+Executar o arquivo ruby (neste exemplo abaixo, não irá passar nenhum parâmetro).
+```
+bundle exec s3.rb
+```
+
+
+
+
+
+
+
 
 
