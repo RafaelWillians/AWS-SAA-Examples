@@ -19,6 +19,8 @@ Obs.: recomendo usar um dos scripts caso tiver session_token na credencial que u
 
 ### [S3](./s3/README.md)
 
+### [EC2](./ec2/README.md)
+
 ### [Exemplos de Arquiteturas](./arquiteturas_exemplos/README.md)
 
 ### Extensões para VSCode configuradas no devcontainer
