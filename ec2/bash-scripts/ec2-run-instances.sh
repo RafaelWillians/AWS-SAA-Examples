@@ -3,8 +3,8 @@
 # Ativa depuração, para mostrar cada comando do script sendo executado.
 set -x
 
-# Obtém a região padrão da conta
-REGION=$(aws configure get region)
+# Obtém a região padrão da conta, para funcionar tanto em cloudshell quanto via AWS CLI
+REGION=${AWS_REGION:-$(aws configure get region)}
 
 # Obtém o id da primeira subrede da query
 SUBNET_ID=$(aws ec2 describe-subnets \
