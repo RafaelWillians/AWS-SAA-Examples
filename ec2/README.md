@@ -1,3 +1,3 @@
 # EC2
 
-[Bash Scripts](./bash-scripts/)
+### [Bash Scripts](./bash-scripts/)
