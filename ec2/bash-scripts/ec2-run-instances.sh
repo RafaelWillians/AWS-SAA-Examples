@@ -24,7 +24,7 @@ aws ec2 run-instances \
     --image-id $AMI_ID \
     --instance-type t2.nano \
     --subnet-id $SUBNET_ID \
-    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=coolify-instance}]' \
+    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=ec2-instance-script}]' \
     --block-device-mappings "DeviceName=/dev/xvda,Ebs={VolumeSize=35}" \
     --region $REGION
 
