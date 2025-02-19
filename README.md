@@ -17,7 +17,9 @@ Obs.: recomendo usar um dos scripts caso tiver session_token na credencial que u
 
 ### [Planilha com breve resumo de todos os serviços que caem na prova](https://docs.google.com/spreadsheets/d/1mPh3mly7_8WeA3YofX4nUiDU3rXdROojQWtNRDAj2vM/edit?usp=sharing)
 
-### [Mapa Mental Simples](./mapa-mental/aws_saa-mapa-mental-simples.pdf)
+### [Mapa Mental Simples](./mapa-mental/simples/aws_saa-mapa-mental-simples.pdf)
+
+### [Mapa Mental Detalhado - com quase todos os assuntos a serem estudados](./mapa-mental/detalhado/aws_saa-mapa-mental-detalhado.pdf)
 
 ### [Comandos CLI](./cli/README.md)
 
