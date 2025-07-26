@@ -41,3 +41,6 @@ Obs.: recomendo usar um dos scripts caso tiver session_token na credencial que u
 * AWS CLI
 * PowerShell
 * AWS Tools for PowerShell
+
+
+TESTE 
